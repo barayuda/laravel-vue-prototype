@@ -91,7 +91,7 @@ hr {
 .list .content {
   flex: 1 1 75%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .list .list-item {
@@ -99,7 +99,7 @@ hr {
   margin-bottom: 16px;
 }
 
-.list .list-item > i {
+.list .list-item>i {
   width: 35px;
 }
 
@@ -107,11 +107,9 @@ hr {
   .list .title {
     flex: 1 1 33%;
   }
-
   .list .content {
     flex: 1 1 67%;
   }
-
   .list .list-item {
     flex: 0 0 100%;
   }
