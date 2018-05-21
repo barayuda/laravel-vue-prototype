@@ -1,3 +1,9 @@
+function escapeKeyListiner(event) {
+    if (event.keyCode === 27 && app.modalOpen) {
+        app.modalOpen = false;
+    }
+}
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -21,11 +27,12 @@ var app = new Vue({
                 document.body.classList.remove(className);
             }
         }
-    }
-});
-
-document.addEventListener('keyup', function(event) {
-    if (event.keyCode === 27 && app.modalOpen) {
-        app.modalOpen = false;
+    },
+    created: function () {
+        document.addEventListener('keyup', escapeKeyListiner);
+    },
+    // to avoid memory leak
+    destroyed: function () {
+        document.removeEventListener('keyup', this.escapeKeyListiner);
     }
 });
